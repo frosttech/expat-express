@@ -4,9 +4,43 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Expat Express</title>
 </head>
 <body>
-    
+    <!-- nesting the entire "app" in one section to move around the page as one easier-->
+<div id="app">
+    <!--header function-->
+ <div id="hero">
+     <H1>Expat-Express</H1>
+     <h2>catchy tag line</h2>
+ </div>
+ <!--starting input section-->
+ <div>
+ <!--text input box for currency-->
+    <input placeholder="Input starting currency" id="currencyInput" type="number" min="1">
+ <!--drop down menu for original currency-->
+    <label for="currency">Select a Currency:</label>
+    <select name="currency" id="currencyStart">
+        <option value="USD">USD</option>
+        <option value="EUR">EURO</option>
+         <option value="JPY">JAPENESE YEN</option>
+         <option value="GBP">POUND STERLING</option>
+    </select>
+</div>
+ <!--option input section-->
+<div>
+    <!--text input box for zipcode-->
+    <input placeholder="Input target zipcode" id="zipcode" type="number">
+    <!--drop down menu for end currency-->
+    <label for="currency">Select a Currency:</label>
+    <select name="currency" id="currencyEnd">
+        <option value="USD">USD</option>
+        <option value="EUR">EURO</option>
+        <option value="JPY">JAPENESE YEN</option>
+        <option value="GBP">POUND STERLING</option>
+    </select>
+</div>
+</div>
+    <script src="../assets/script.js"></script>
 </body>
 </html>
