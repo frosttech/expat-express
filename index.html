@@ -4,18 +4,28 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Linking Bulma , our Bootstrap alternative -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+    <!-- Linking custom stylesheet for any minor changes -->
     <link rel="stylesheet" href="./assets/css/style.css">
     <title>Expat Express</title>
 </head>
+
 <body>
-    <!-- nesting the entire "app" in one section to move around the page as one easier-->
-<div id="app">
-    <!--header function-->
- <div id="hero">
-     <H1>Expat-Express</H1>
-     <h2>catchy tag line</h2>
- </div>
+
+    <!--header section-->
+    <header class="container" id="hero">
+        <div class="is-ancestor">
+            <div class="tile is-parent is-vertical">
+                <article class="tile is-child has-text-centered">
+                    <h1 class="title">Expat-Express</h1>
+                    <h2 class="subtitle">Insert Catchy Slogan</h2>
+                </article>
+            </div>
+        </div>
+
+    </header>
+
  <!--starting input section-->
  <div>
  <!--text input box for currency-->
@@ -42,7 +52,7 @@
         <option value="GBP">POUND STERLING</option>
     </select>
 </div>
-</div>
+
     <script src="../assets/script.js"></script>
 </body>
 </html>
