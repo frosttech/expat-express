@@ -15,7 +15,7 @@
 
     <!--header section-->
     <!-- tiles are the building blocks of Bulma layout; read documentation for info about classes -->
-    <header class="container has-background-info" id="hero">
+    <header class="container has-background-primary" id="hero">
         <div class="is-ancestor">
             <div class="tile is-parent is-vertical">
                 <article class="tile is-child has-text-centered">
@@ -26,32 +26,49 @@
         </div>
     </header>
 
- <!--starting input section-->
- <div>
- <!--text input box for currency-->
-    <input placeholder="Input starting currency" id="currencyInput" type="number" min="1">
- <!--drop down menu for original currency-->
-    <label for="currency">Select a Currency:</label>
-    <select name="currency" id="currencyStart">
-        <option value="USD">USD</option>
-        <option value="EUR">EURO</option>
-         <option value="JPY">JAPENESE YEN</option>
-         <option value="GBP">POUND STERLING</option>
-    </select>
-</div>
- <!--option input section-->
-<div>
-    <!--text input box for zipcode-->
-    <input placeholder="Input target zipcode" id="zipcode" type="number">
-    <!--drop down menu for end currency-->
-    <label for="currency">Select a Currency:</label>
-    <select name="currency" id="currencyEnd">
-        <option value="USD">USD</option>
-        <option value="EUR">EURO</option>
-        <option value="JPY">JAPENESE YEN</option>
-        <option value="GBP">POUND STERLING</option>
-    </select>
-</div>
+
+
+    <div class="tile is-ancestor">
+        <div class="tile is-vertical is-12">
+          <div class="tile">
+            <div class="tile is-parent is-vertical">
+              <article class="tile is-child notification is-info" id="incomeInputSection">
+                <!-- Input Box for Annual Income -->
+                <form>
+                    <label for="income" class="subtitle">Enter Annual Income:</label>
+                    <input placeholder="Annual Income" id="currencyInput" type="number" name="income" min="1">
+                </form>
+                <!-- Dropdown Menu for Home Currency -->
+                <label for="currency" class="subtitle">Select a Currency:</label>
+                <select name="currency" id="currencyStart">
+                    <option value="USD">USD</option>
+                    <option value="EUR">EURO</option>
+                    <option value="JPY">JAPENESE YEN</option>
+                    <option value="GBP">POUND STERLING</option>
+                </select>
+              </article>
+              <article class="tile is-child notification is-info" id="locationInputSection">
+                <h3 class="subtitle">Where would you like to move?</h3>
+
+                <!-- Input Box for Zipcode Location -->
+                <form>
+                    <label for="zipcode" class="subtitle">Enter Zipcode:</label>
+                    <input placeholder="Zipcode" id="zipcode" type="number" name="zipcode">
+                </form>
+              </article>
+            </div>
+            <div class="tile is-parent is-8">
+                <article class="tile is-child notification is-danger has-text-centered">
+                  <p class="title">Output Section</p>
+                  
+                  <div class="content">
+                    <!-- Content -->
+                  </div>
+                </article>
+              </div>
+            </div>
+        </div>
+      </div>
 
     <script src="../assets/script.js"></script>
 </body>
