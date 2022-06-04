@@ -14,3 +14,12 @@
     
     margin-left: 64px;
 }
+
+#propertyList {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin: 25px auto;
+    background: gray;
+    border-radius: 5px;
+}
