@@ -181,7 +181,7 @@ var createPropertyEl = function() {
 		propertyEl.appendChild(addressEl);
 
 		var marketDataEl = document.createElement("div");
-		marketDataEl.textContent = propertyCache[i].marketData;
+		marketDataEl.textContent = propertyCache[i].marketData + " days on the market";
 		marketDataEl.className = "marketData";
 		propertyEl.appendChild(marketDataEl);
 
@@ -191,7 +191,7 @@ var createPropertyEl = function() {
 		propertyEl.appendChild(typeEl);
 
 		var priceEl = document.createElement("div");
-		priceEl.textContent = propertyCache[i].price;
+		priceEl.textContent = "$" + propertyCache[i].price + " per month";
 		priceEl.className = "price";
 		propertyEl.appendChild(priceEl);
 

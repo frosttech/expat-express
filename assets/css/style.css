@@ -15,11 +15,16 @@
     margin-left: 64px;
 }
 
-#propertyList {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    margin: 25px auto;
-    background: gray;
-    border-radius: 5px;
+#property-list {
+    list-style-type: none;
+}
+
+#property-list li {
+
+    font-weight: bolder;
+    border: solid white 1px;
+    text-align: left;
+    padding: 5px;
+    text-decoration: none;
+
 }

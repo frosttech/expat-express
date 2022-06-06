@@ -28,14 +28,17 @@
 
 
   <div class="tile is-ancestor">
-      <div class="tile is-vertical is-12">
+      <div class="tile is-vertical is-10">
         <div class="tile">
-          <div class="tile is-parent is-vertical">
+          <div class="tile is-parent is-vertical is-1">
+
+          </div>
+          <div class="tile is-parent is-vertical is-4">
             <article class="tile is-child notification is-info" id="incomeInputSection">
               <!-- Input Box for Annual Income -->
               <form>
-                  <label for="income" class="subtitle">Enter Annual Income:</label>
-                  <input placeholder="Annual Income" id="currencyInput" type="number" name="income" min="1">
+                  <label for="income" class="subtitle">Enter Monthly Income:</label>
+                  <input placeholder="Monthly Income" id="currencyInput" type="number" name="income" min="1">
               </form>
               <!-- Dropdown Menu for Home Currency -->
               <label for="currency" class="subtitle">Select a Currency:</label>
@@ -67,11 +70,11 @@
           </div>
           <div class="tile is-parent is-8">
               <article class="tile is-child notification is-danger has-text-centered">
-                <p class="title">Output Section</p>
+                <p class="title">Properties For Rent Within Your Budget:</p>
                 
                 <form class="content" id="propertyForm">
                   <!-- Content 
-                  <ul class="content" id="propertyList">
+                  <ul class="content" id="property-list">
                     <li class="property">
                       <div class="address">9815 Copper Creek Dr, Unit 31925, Austin, TX 78729</div>
                       <div class="marketData">33 Days</div>
