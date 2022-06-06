@@ -1,75 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Linking Bulma , our Bootstrap alternative -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
-    <!-- Linking custom stylesheet for any minor changes -->
-    <link rel="stylesheet" href="./assets/css/style.css">
-    <title>Expat Express</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Linking Bulma , our Bootstrap alternative -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+  <!-- Linking custom stylesheet for any minor changes -->
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Expat Express</title>
 </head>
 
 <body>
-
-    <!--header section-->
-    <!-- tiles are the building blocks of Bulma layout; read documentation for info about classes -->
-    <header class="container has-background-primary" id="hero">
-        <div class="is-ancestor">
-            <div class="tile is-parent is-vertical">
-                <article class="tile is-child has-text-centered">
-                    <h1 class="title has-text-white">Expat-Express</h1>
-                    <h2 class="subtitle has-text-white">Insert Catchy Slogan</h2>
-                </article>
-            </div>
-        </div>
-    </header>
-
-
-
-    <div class="tile is-ancestor">
-        <div class="tile is-vertical is-12">
-          <div class="tile">
-            <div class="tile is-parent is-vertical">
-              <article class="tile is-child notification is-info" id="incomeInputSection">
-                <!-- Input Box for Annual Income -->
-                <form>
-                    <label for="income" class="subtitle">Enter Annual Income:</label>
-                    <input placeholder="Annual Income" id="currencyInput" type="number" name="income" min="1">
-                </form>
-                <!-- Dropdown Menu for Home Currency -->
-                <label for="currency" class="subtitle">Select a Currency:</label>
-                <select name="currency" id="currencyStart">
-                    <option value="USD">USD</option>
-                    <option value="EUR">EURO</option>
-                    <option value="JPY">JAPENESE YEN</option>
-                    <option value="GBP">POUND STERLING</option>
-                </select>
+  <!--header section-->
+  <!-- tiles are the building blocks of Bulma layout; read documentation for info about classes -->
+  <header class="container has-background-primary" id="hero">
+      <div class="is-ancestor">
+          <div class="tile is-parent is-vertical">
+              <article class="tile is-child has-text-centered">
+                  <h1 class="title has-text-white">Expat-Express</h1>
+                  <h2 class="subtitle has-text-white">Insert Catchy Slogan</h2>
               </article>
-              <article class="tile is-child notification is-info" id="locationInputSection">
-                <h3 class="subtitle">Where would you like to move?</h3>
-
-                <!-- Input Box for Zipcode Location -->
-                <form>
-                    <label for="zipcode" class="subtitle">Enter Zipcode:</label>
-                    <input placeholder="Zipcode" id="zipcode" type="number" name="zipcode">
-                </form>
-              </article>
-            </div>
-            <div class="tile is-parent is-8">
-                <article class="tile is-child notification is-danger has-text-centered">
-                  <p class="title">Output Section</p>
-                  
-                  <div class="content">
-                    <!-- Content -->
-                  </div>
-                </article>
-              </div>
-            </div>
-        </div>
+          </div>
       </div>
+  </header>
 
-    <script src="./assets/js/script.js"></script>
+
+
+  <div class="tile is-ancestor">
+      <div class="tile is-vertical is-10">
+        <div class="tile">
+          <div class="tile is-parent is-vertical is-1">
+
+          </div>
+          <div class="tile is-parent is-vertical is-4">
+            <article class="tile is-child notification is-info" id="incomeInputSection">
+              <!-- Input Box for Annual Income -->
+              <form>
+                  <label for="income" class="subtitle">Enter Monthly Income:</label>
+                  <input placeholder="Monthly Income" id="currencyInput" type="number" name="income" min="1">
+              </form>
+              <!-- Dropdown Menu for Home Currency -->
+              <label for="currency" class="subtitle">Select a Currency:</label>
+              <select name="currency" id="currencyStart">
+                <option value="" disabled selected>Pick a currency.</option>
+                <option value="EUR">€ - EUR</option>
+                <option value="JPY">¥ - JPY</option>
+                <option value="GBP">£ - GBP</option>
+                <option value="AUD">AU$ - AUD</option>
+                <option value="CAD">CA$ - CAD</option>
+                <option value="CHF">₣ - CHF</option>
+                <option value="CNH">¥ - CNH</option>
+                <option value="HKD">HK$ - HKD</option>
+                <option value="NZD">NZ$ - NZD</option>
+              </select>
+            </article>
+            <article class="tile is-child notification is-info" id="locationInputSection">
+              <h3 class="subtitle">Where would you like to move?</h3>
+
+              <!-- Input Box for Zipcode Location -->
+              <form>
+                  <label for="zipcode" class="subtitle">Enter Zipcode:</label>
+                  <input placeholder="Zipcode" id="zipcode" type="number" name="zipcode">
+              </form>
+
+              <!-- DEV TEST BUTTON -->
+              <button id="submit">Submit</button>
+            </article>
+          </div>
+          <div class="tile is-parent is-8">
+              <article class="tile is-child notification is-danger has-text-centered">
+                <p class="title">Properties For Rent Within Your Budget:</p>
+                
+                <form class="content" id="propertyForm">
+                  <!-- Content 
+                  <ul class="content" id="property-list">
+                    <li class="property">
+                      <div class="address">9815 Copper Creek Dr, Unit 31925, Austin, TX 78729</div>
+                      <div class="marketData">33 Days</div>
+                      <div class="propertyType">Apartment</div>
+                      <div class="price">12345</div>
+                    </li>
+                  </ul>
+                -->
+                </form>
+              </article>
+            </div>
+          </div>
+      </div>
+    </div>
+
+
+  <!-- Linking jquery from CDN -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="./assets/js/script.js"></script>
 </body>
 </html>

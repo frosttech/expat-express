@@ -14,3 +14,17 @@
     
     margin-left: 64px;
 }
+
+#property-list {
+    list-style-type: none;
+}
+
+#property-list li {
+
+    font-weight: bolder;
+    border: solid white 1px;
+    text-align: left;
+    padding: 5px;
+    text-decoration: none;
+
+}
