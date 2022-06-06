@@ -26,4 +26,4 @@ Please note that you will need to change the API keys in the script.js file for 
 == USE ==
 Enter your monthly income and select your local currency from the drop down. Next, enter the desired zip code and click submit. On the right hand side you will see properties according to the data entered. Please note that you will only see properties that are 1/3 or less of your monthly income. This is due to common US housing market calucations as it is typically a requirement for home rental approval.
 <img width="466" alt="image" src="https://user-images.githubusercontent.com/9426692/172091137-80138d97-93d5-456f-ba41-5909435856b0.png">
-![image](https://user-images.githubusercontent.com/9426692/172091166-4c3372ab-10da-46e6-b92d-8e0eaa3b5349.png)
+<img width="466" alt="image" src="https://user-images.githubusercontent.com/9426692/172091166-4c3372ab-10da-46e6-b92d-8e0eaa3b5349.png">
