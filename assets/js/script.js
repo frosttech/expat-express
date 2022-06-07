@@ -1,6 +1,6 @@
+// CHANGE THIS TO YOUR OWN VALID KEY
+var rapidApiKey = "256df3e813msh8586755e5591e80p1e72dajsn668f10750869";
 
-var currencyApiKey = "256df3e813msh8586755e5591e80p1e72dajsn668f10750869";
-var zipApi = "GVdfjcqE40zkSALO6iqFBUpH71AayyuMmmDkWvmesgRW3Uslm7bArbSpRO32cOnk";
 var currencyData = {
 	convertedTotal: "",
 	rentalBudget: ""
@@ -29,21 +29,34 @@ var convertCurrency = function(convertFrom, convertTo, convertAmount) {
 		"method": "GET",
 		"headers": {
 			"X-RapidAPI-Host": "currency-converter5.p.rapidapi.com",
-			"X-RapidAPI-Key": `${currencyApiKey}`
+			"X-RapidAPI-Key": `${rapidApiKey}`
 		}
 	};
 	$.ajax(settings).done(function (response) {
-		//console.log(response.rates.USD.rate_for_amount);
+		console.log(response.rates.USD.rate_for_amount);
 		var convertedTotal = Number(response.rates.USD.rate_for_amount).toFixed(2);
-		var rentalBudget = (Number(convertedTotal) * 0.28).toFixed(2);
-		currencyData = {
-			convertedTotal: convertedTotal,
-			rentalBudget: rentalBudget
-		}
-		console.log(currencyData);
+		rentalMath(convertedTotal);
+		
+		//var rentalBudget = (Number(convertedTotal) * 0.28).toFixed(2);
+		//currencyData = {
+		//	convertedTotal: convertedTotal,
+		//	rentalBudget: rentalBudget
+		//}
+		//console.log(currencyData);
 
 	});
 	
+};
+
+var rentalMath = function(total) {
+	var totalBudget = total
+
+	var rentalBudget = (Number(totalBudget) * 0.28).toFixed(2);
+	currencyData = {
+		convertedTotal: totalBudget,
+		rentalBudget: rentalBudget
+	}
+	console.log(currencyData);
 };
 
 var saveCache = function() {
@@ -87,7 +100,7 @@ var resolveZip = function(zipCode) {
 				"method": "GET",
 				"headers": {
 					"X-RapidAPI-Host": "redline-redline-zipcode.p.rapidapi.com",
-					"X-RapidAPI-Key": "256df3e813msh8586755e5591e80p1e72dajsn668f10750869"
+					"X-RapidAPI-Key": `${rapidApiKey}`
 				}
 			};
 			
@@ -134,14 +147,15 @@ var loadProperties = function(state, city) {
 	var zipCity = city;
 	console.log(zipState, zipCity);
 	console.log(zipData.city);
+	propertyCache = [];
 	const settings = {
 		"async": true,
 		"crossDomain": true,
-		"url": `https://realty-mole-property-api.p.rapidapi.com/rentalListings?state=${zipState}&city=${zipCity}&limit=5`,
+		"url": `https://realty-mole-property-api.p.rapidapi.com/rentalListings?state=${zipState}&city=${zipCity}&limit=10`,
 		"method": "GET",
 		"headers": {
 			"X-RapidAPI-Host": "realty-mole-property-api.p.rapidapi.com",
-			"X-RapidAPI-Key": "256df3e813msh8586755e5591e80p1e72dajsn668f10750869"
+			"X-RapidAPI-Key": `${rapidApiKey}`
 		}
 	};
 	$.ajax(settings).done(function (response) {
@@ -154,7 +168,7 @@ var loadProperties = function(state, city) {
 				type: parsedResponse[i].propertyType,
 				price: parsedResponse[i].price
 			}
-			if (Number(currencyData.rentalBudget) >= propertyData.price) {
+			if (Number(currencyData.rentalBudget) >= Number(propertyData.price)	) {
 				propertyCache.push(propertyData)
 			}
 		}
@@ -166,7 +180,7 @@ var loadProperties = function(state, city) {
 
 var createPropertyEl = function() {
 	var formEl = document.querySelector("#propertyForm");
-	removeAllChildren(formEl);
+	//removeAllChildren(formEl);
 	var propertyListEl = document.createElement("ul");
 	propertyListEl.className = "content";
 	propertyListEl.id = "property-list";
@@ -210,8 +224,16 @@ $("#submit").click(function() {
 	var convertAmount = $("#currencyInput").val();
 	var zipCode = $("#zipcode").val();
 	if (eventHandler(convertFrom, convertTo, convertAmount, zipCode)) {
-		convertCurrency(convertFrom, convertTo, convertAmount);
+		if (convertFrom === "USD") {
+			console.log("USD selected, skipping currency conversion.")
+			rentalMath(convertAmount);
+			
+		}
+		else {
+			convertCurrency(convertFrom, convertTo, convertAmount);
+		}
 		resolveZip(zipCode);
+		$('#propertyForm').empty()
 		loadProperties(zipData.state, zipData.city);
 	}
 });
